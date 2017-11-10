@@ -15,16 +15,16 @@ import com.cheer.spring.helloworld.MessageService;
 
 public class SpringTest
 {
-    @Test
+    /*   @Test
     public void testOldStyle()
     {
-        MessageService msgService = new MessageService();
+       MessageService msgService = new MessageService();
         MessagePrinter msgPrinter = new MessagePrinter();
         // 注入msgService对象
         msgPrinter.setMsgService(msgService);
         msgPrinter.printMessage();
     }
-
+*/
     @Test
     public void testSpringStyle()
     {

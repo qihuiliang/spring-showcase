@@ -4,6 +4,8 @@
 
 package com.cheer.spring.test;
 
+import javax.annotation.Resource;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
+import com.cheer.spring.ioc.anntation.dao.MasterDao;
+import com.cheer.spring.ioc.anntation.service.MasterService;
 import com.cheer.spring.ioc.anntation.service.PetService;
+
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = "classpath*:spring/spring.beans.annotation.xml")
@@ -25,6 +29,24 @@ public class SpringAnnotationTest
     public void test()
     {
         Assert.assertEquals(1, petService.find("scott", "tiger"));
+    }
+    
+    @Autowired
+    private MasterService masterService;
+    
+    @Test
+    public void test1()
+    {
+        Assert.assertEquals(1, masterService.find("scott", "tiger"));
+    }
+    
+    @Resource(name = "MasterDaoHibernateImpl")
+    private MasterDao masterDao;
+    
+    @Test
+    public void test2()
+    {
+        Assert.assertEquals(1, masterDao.find("scott", "tiger"));
     }
 }
 
